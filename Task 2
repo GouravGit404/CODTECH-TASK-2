@@ -1,0 +1,54 @@
+// CODTECH TASK 2 
+
+#include <bits/stdc++.h>
+using namespace std;
+double convertTemperature(double temperature, std::string fromScale, std::string toScale) {
+
+switch (fromScale[0]) {
+        case 'C':
+if (toScale == "Fahrenheit") {
+ return (temperature * 9 / 5) + 32;
+} 
+else if (toScale == "Kelvin") {
+return temperature + 273.15;
+}
+break;
+case 'F':
+if (toScale == "Celsius") {
+return (temperature - 32) * 5 / 9;
+} 
+else if (toScale == "Kelvin") {
+ return (temperature - 32) * 5 / 9 + 273.15;
+}
+break;
+case 'K':
+if (toScale == "Celsius") {
+return temperature - 273.15;
+} 
+else if (toScale == "Fahrenheit") {
+return (temperature - 273.15) * 9 / 5 + 32;
+}
+break;
+default:
+cout << "Invalid scale entered. Please enter Celsius, Fahrenheit or Kelvin." << std::endl;
+break;
+}
+return temperature;
+}
+int main() {
+double temperature;
+string fromScale, toScale;
+cout << "Enter the temperature: ";
+cin >> temperature;
+cout << "Enter the scale of the temperature (Celsius, Fahrenheit, Kelvin): ";
+cin >> fromScale;
+cout << "Enter the scale to convert to (Celsius, Fahrenheit, Kelvin): ";
+cin >> toScale;
+    double convertedTemperature = convertTemperature(temperature, fromScale, toScale);
+    if (convertedTemperature != temperature) {
+        cout << "Converted temperature: " << convertedTemperature << " " << toScale << std::endl;
+    }
+    return 0;
+}
+
+
